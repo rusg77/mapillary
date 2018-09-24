@@ -1,0 +1,13 @@
+from flask import Flask
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+
+from config import get_config
+
+app = Flask(__name__)
+app.config.from_object(get_config())
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from app.models.user import User
+from app.routes.user import *
