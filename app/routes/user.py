@@ -9,7 +9,7 @@ def create_user():
     username = data.get('username')
     email = data.get('email')
     birthdate = data.get('birthdate')
-    address = data['address']
+    address = data.get('address')
 
     try:
         user = User(username, email, birthdate, address)

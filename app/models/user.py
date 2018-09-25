@@ -25,7 +25,6 @@ class User(db.Model):
 
     def to_json(self):
         return {
-            "id": self.id,
             "username": self.username,
             "email": self.email,
             "birthdate": self.birthdate.strftime("%Y-%m-%d"),
@@ -44,7 +43,7 @@ class User(db.Model):
             if User.query.filter(User.email == field).first():
                 raise AssertionError('Email is already in use')
 
-            if not re.match(r"[a-z\d]+@[a-z\d]+\.[a-z\d]+", field):
+            if not re.match(r"[a-z_\d]+@[a-z\d]+\.[a-z\d]+", field):
                 raise AssertionError('Email format is invalid')
 
         if key == 'birthdate':

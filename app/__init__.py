@@ -11,3 +11,6 @@ migrate = Migrate(app, db)
 
 from app.models.user import User
 from app.routes.user import *
+
+if app.config['ENV'] == 'dev':
+    from app.routes.automation import *
