@@ -3,7 +3,7 @@ from flask import request, jsonify
 from app import app, User, db
 
 
-@app.route("/api/v1/users", methods=["POST"])
+@app.route('/api/v1/users', methods=['POST'])
 def create_user():
     data = request.get_json()
     username = data.get('username')
@@ -20,7 +20,7 @@ def create_user():
         return jsonify(error=str(e)), 400
 
 
-@app.route("/api/v1/users", methods=["GET"])
+@app.route('/api/v1/users', methods=['GET'])
 def get_users():
     users = User.query.all()
     return jsonify(users=[user.to_json() for user in users])

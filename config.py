@@ -7,6 +7,7 @@ class Config(object):
     CSRF_ENABLED = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAX_FIELD_LENGTH = 255
+    SECRET_KEY = 'secret_key'
 
 
 class DevelopmentConfig(Config):
