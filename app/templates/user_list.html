@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <table class="table">
+    <table class="table" id="users_table">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -14,13 +14,13 @@
         {% for user in users %}
             <tr>
                 <th scope="row"><span class="cell">{{ loop.index }}</span></th>
-                <td><span class="cell">{{ user.username }}</span></td>
-                <td><span class="cell">{{ user.birthdate }}</span></td>
-                <td><span class="cell">{{ user.email }}</span></td>
-                <td><span class="cell">{{ user.address }}</span></td>
+                <td><span class="cell" id="username-{{ loop.index }}">{{ user.username }}</span></td>
+                <td><span class="cell" id="birthdate-{{ loop.index }}">{{ user.birthdate }}</span></td>
+                <td><span class="cell" id="email-{{ loop.index }}">{{ user.email }}</span></td>
+                <td><span class="cell" id="address-{{ loop.index }}">{{ user.address }}</span></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ url_for('create_user_form') }}" class="btn btn-primary">Create user</a>
+    <a href="{{ url_for('create_user_form') }}" class="btn btn-primary" id="create_user">Create user</a>
 {% endblock %}
