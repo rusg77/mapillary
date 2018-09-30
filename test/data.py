@@ -1,4 +1,5 @@
 # coding: utf-8
+
 from test.config import max_field_length
 
 valid_email = 'test@test.com'
